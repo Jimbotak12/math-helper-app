@@ -1,5 +1,4 @@
 from streamlit_option_menu import option_menu
-from dotenv import load_dotenv
 from openai import OpenAI
 import streamlit as st
 import requests 
