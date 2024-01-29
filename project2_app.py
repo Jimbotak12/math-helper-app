@@ -6,11 +6,11 @@ import requests
 import openai
 import os
 
-# load the .env file
-load_dotenv()
+# load the API key from Streamlit secrets
+api_key = st.secrets["OPENAI_API_KEY"]
 
-# get the secrety key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# set the API key
+openai.api_key = api_key
 
 # Preference options
 algebra_subtopic = ["Linear Equations and Inequalities","Quadratic Equations","Functions and Relations","Polynomials","Exponents and Logarithms","Any"]
@@ -46,70 +46,7 @@ def main():
         {
             "role": "system",
             "content": system_prompt,
-        },
-        # {
-        #     "role":"user",
-        #     "content":"""
-        #     I am a secondary school student seeking assistance in mathematic to sit in SPM exam. The specific topic or problem I need help with is algebra. The subtopic I want to get the understanding is Quadratic Equations. I hope can get the full support to get fully understanding about the topic."""
-        # },
-        # {
-        #     "role":"assistant",
-        #     "content":"""
-        #     Absolutely, I'd be happy to help you with quadratic equations. Understanding this topic is essential for your SPM exam. Let's start by reviewing the basic concepts of quadratic equations and then we can work through some problems together.
-
-        #     A quadratic equation is an equation of the form ax^2 + bx + c = 0, where a, b, and c are constants and a ≠ 0.
-
-        #     The solutions to a quadratic equation can be found using the quadratic formula:
-        #     x = (-b ± √(b^2 - 4ac)) / (2a)
-        #     This formula gives the values of x which satisfy the quadratic equation.
-
-        #     Now, let's work through some quadratic equation problems together. Here are a few questions to get started:
-
-        #     Question 1: Solve the equation x^2 - 5x + 6 = 0
-
-        #     Question 2: Solve the equation 2x^2 + 3x - 2 = 0
-
-        #     Question 3: Solve the equation 3x^2 - 7x + 2 = 0
-
-        #     Please provide your solutions for these questions, and I'll check them for you. If you need help or if you have any questions, feel free to ask!"""
-        # },
-        # {
-        #     "role":"user",
-        #     "content":"""
-        #     1. (x-3)(x-2)
-        #     2. (2x-1)(x+2)
-        #     3. (x-2)(3x-1)"""
-        # },
-        # {
-        #     "role":"assistant",
-        #     "content":"""
-        #     It looks like you have factored the quadratic equations instead of solving for the values of x. Let's work through the solutions together:
-
-        #     Question 1: Solve the equation x^2 - 5x + 6 = 0
-        #     To solve this quadratic equation, we can factorize it as (x-3)(x-2) = 0
-        #     By setting each factor to zero, we have:
-        #     x - 3 = 0   or   x - 2 = 0
-        #     So, the solutions are:
-        #     x = 3   or   x = 2
-
-        #     Question 2: Solve the equation 2x^2 + 3x - 2 = 0
-        #     To solve this quadratic equation, we can factorize it as (2x-1)(x+2) = 0
-        #     By setting each factor to zero, we have:
-        #     2x - 1 = 0   or   x + 2 = 0
-        #     So, the solutions are:
-        #     2x = 1   or   x = -2
-        #     x = 1/2   or   x = -2
-
-        #     Question 3: Solve the equation 3x^2 - 7x + 2 = 0
-        #     To solve this quadratic equation, we can factorize it as (x-2)(3x-1) = 0
-        #     By setting each factor to zero, we have:
-        #     x - 2 = 0   or   3x - 1 = 0
-        #     So, the solutions are:
-        #     x = 2   or   3x = 1
-        #     x = 2   or   x = 1/3
-
-        #     Great effort in factoring the quadratic equations! You have successfully factored the quadratic equations, but remember that to solve the equations, we need to find the values of x. Keep practicing, and if you have any more questions or if there's anything else you'd like to discuss, feel free to ask!"""
-        # }
+        },   
     ]
 
     st.set_page_config(
