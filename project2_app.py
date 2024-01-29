@@ -87,7 +87,6 @@ def main():
 
     # Chat Bot
     st.title("Math Helper :mortar_board:")
-    st.markdown()
 
     if "openai_model" not in st.session_state:
         st.session_state["openai_model"] = "gpt-3.5-turbo-1106"
